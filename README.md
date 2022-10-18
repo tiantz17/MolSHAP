@@ -15,11 +15,13 @@ Interpreting the structure-activity relationships (SARs) using Shapley values fo
 
 ## Pipelines
 
-### Step1. Preparing data
+### Step1. Prepare data
 
 A table containing a number of congeneric compounds is required as input.
 Specifically, each compound shoule be organized as a single row with its `ID`, `SMILES`, and `Activity` as columns.
 The activity should be in log scale, e.g., pKi, pIC50, -log10\[Mol/L\].
+Note that other properties, if can be decomposed into side chains, can also be used for analyzing.
+Properties such as T1/2 (time), Tmax (time) are not suitable here.
 
 For example, 
 
@@ -31,18 +33,18 @@ For example,
 
 ### Step2. Side-chain decomposition
 
-Run the following script for side-chain decomposition using auto scarffold:
+Run the following script for side-chain decomposition using auto scaffold:
 ```
 python decompose.py -i ./demo/demo.csv -o ./demo/ 
 ```
 
-You may also specify the scarffold in SMILES format with `-c` option:
+You may also specify the scaffold in SMILES format with `-c` option:
 ```
 python decompose.py -i ./demo/demo.csv -c O=C1C\(N[*:5]\)C\([*:4]\)c2c\([*:3]\)nn\([*:2]\)c2N1[*:1] -o ./demo/ 
 ```
 Note that the special characters (e.g., `(`, `)`) in SMILES should be converted using backslash (e.g., `\(`, `\)`).
 
-You can modify the scarffold until satisfaction.
+You can modify the scaffold until satisfaction.
 
 ### Step3. Build model
 

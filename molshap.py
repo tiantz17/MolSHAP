@@ -334,6 +334,8 @@ table_opt['Activities'] = opt_affinities
 for i, r in enumerate(list_keys):
     table_opt[r] = list_frag[opt_idx[:,i]]
     table_opt[r+"_MolSHAP"] = [dict_shap_rule[item] for item in opt_idx[:,i]]
+table_opt = table_opt.sort_values(['Activities'], ascending=False)
+table_opt['ID'] = np.arange(len(list_opt_smiles))
 table_opt.to_csv(args.output+"/{}_opt.csv".format(prefix), index=None)
 
 plt.figure(figsize=(5, 4), dpi=200)

@@ -1,8 +1,12 @@
 # MolSHAP
 
-Interpreting the structure-activity relationships (SARs) using Shapley values for compound optimization
+Interpreting Quantitative Structure-Activity Relationships using Shapley Values of R-Groups
 
 <img src="demo/demo.png" width=200>
+
+For details, please refer to our [J. Chem. Inf. Model.](https://doi.org/10.1021/acs.jcim.3c00465) paper.
+
+If you find this software useful in your work, please cite our paper.
 
 ## Requirements
 - python = 3.7
